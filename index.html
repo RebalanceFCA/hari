@@ -1,4 +1,60 @@
-r;
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>鍼灸院経営シュミレーション</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #2E5B8A 0%, #1e3a5f 100%);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    
+    .header h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+    
+    .header p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 0;
     }
     
@@ -171,27 +227,27 @@ r;
         <h3>今の鍼灸院のリアルな数字</h3>
         
         <div class="form-group">
-          <label for="current-price">現在の施術単価（円）</label>
+          <label for="current-price">現在の施術単価(円)</label>
           <input type="number" id="current-price" value="10000">
         </div>
         
         <div class="form-group">
-          <label for="patient-count">1日の平均患者人数（人）</label>
+          <label for="patient-count">1日の平均患者人数(人)</label>
           <input type="number" id="patient-count" value="10">
         </div>
         
         <div class="form-group">
-          <label for="work-days">月の稼働日数（日）</label>
+          <label for="work-days">月の稼働日数(日)</label>
           <input type="number" id="work-days" value="25">
         </div>
         
         <div class="form-group">
-          <label for="treatment-time">1人あたりの施術時間（分）</label>
+          <label for="treatment-time">1人あたりの施術時間(分)</label>
           <input type="number" id="treatment-time" value="60">
         </div>
         
         <div class="form-group">
-          <label for="fatigue-level">現在の疲労度（1〜10）</label>
+          <label for="fatigue-level">現在の疲労度(1〜10)</label>
           <input type="number" id="fatigue-level" value="9" min="1" max="10">
         </div>
         
@@ -217,7 +273,7 @@ r;
         
         <div class="result-item">
           <strong>②高単価メニュー導入後のリピート収益／月</strong>
-          <div class="result-value">¥<span id="repeat-revenue">2,000,000</span></div>
+          <div class="result-value">ﾥ<span id="repeat-revenue">2,000,000</span></div>
           <div class="result-description">リピート率が仮に80%のメニューを導入した場合の上乗せ金額</div>
         </div>
         
@@ -240,7 +296,7 @@ r;
       <div class="explanation-grid">
         <div class="explanation-card">
           <h4>１：単価を倍にすれば、患者数が半分でも今の売上は維持できること。</h4>
-          <p>多くの鍼灸師が抱える最大のブロックは「単価を上げたら患者さんが来なくなり、売上が下がる」という恐怖です。しかし、この算出結果では例えば、「単価を2倍にすれば、患者数が半分になっても売上は1円も変わらない」ということがシュミレーションからわかります。これにより、「今のまま無理をして働き続けること（疲弊して一定以上の施術結果を出せないリスク）」の方が、値上げよりもよほど恐ろしいことだと思いませんか？</p>
+          <p>多くの鍼灸師が抱える最大のブロックは「単価を上げたら患者さんが来なくなり、売上が下がる」という恐怖です。しかし、この算出結果では例えば、「単価を2倍にすれば、患者数が半分になっても売上は1円も変わらない」ということがシュミレーションからわかります。これにより、「今のまま無理をして働き続けること(疲弊して一定以上の施術結果を出せないリスク)」の方が、値上げよりもよほど恐ろしいことだと思いませんか？</p>
         </div>
         
         <div class="explanation-card">
@@ -250,37 +306,33 @@ r;
         
         <div class="explanation-card">
           <h4>３：リピート収益額が増益になること。</h4>
-          <p>多くの先生は、新規集客という「バケツに水を注ぎ続ける作業」に必死ですが、リピート率が低い（バケツに穴が空いている）ため、常に「来月の予約」という不安と戦っています。リピート率が80%ということは、バケツの穴が塞がっていくということです。このリピート率は「一度獲得した患者さんが、長期的に院を支えてくれる資産に変わる」という鍼灸院経営の安定を、可能にしていくということです。</p>
+          <p>多くの先生は、新規集客という「バケツに水を注ぎ続ける作業」に必死ですが、リピート率が低い(バケツに穴が空いている)ため、常に「来月の予約」という不安と戦っています。リピート率が80%ということは、バケツの穴が塞がっていくということです。このリピート率は「一度獲得した患者さんが、長期的に院を支えてくれる資産に変わる」という鍼灸院経営の安定を、可能にしていくということです。</p>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    // ページ読み込み時に初期計算
     window.onload = function() {
       calculateResults();
     };
 
     function calculateResults() {
-      // 入力値を取得
       const currentPrice = parseInt(document.getElementById('current-price').value) || 0;
       const patientCount = parseInt(document.getElementById('patient-count').value) || 0;
       const workDays = parseInt(document.getElementById('work-days').value) || 0;
       const treatmentTime = parseInt(document.getElementById('treatment-time').value) || 0;
       const fatigueLevel = parseInt(document.getElementById('fatigue-level').value) || 0;
 
-      // 計算処理
-      const newPrice = currentPrice * 2; // 単価2倍
-      const newPatientCount = patientCount / 2; // 患者数半分
-      const monthlySales = newPrice * newPatientCount * workDays; // 月商
-      const freeTimePerDay = (patientCount - newPatientCount) * (treatmentTime / 60); // 1日あたりの自由時間
-      const freeTime = freeTimePerDay * workDays; // 月の自由時間
-      const repeatRevenue = monthlySales * 0.8; // リピート収益（80%）
-      const estimatedFatigue = fatigueLevel * 0.5; // 疲労度半減
-      const totalRevenue = monthlySales + repeatRevenue; // 合計収益
+      const newPrice = currentPrice * 2;
+      const newPatientCount = patientCount / 2;
+      const monthlySales = newPrice * newPatientCount * workDays;
+      const freeTimePerDay = (patientCount - newPatientCount) * (treatmentTime / 60);
+      const freeTime = freeTimePerDay * workDays;
+      const repeatRevenue = monthlySales * 0.8;
+      const estimatedFatigue = fatigueLevel * 0.5;
+      const totalRevenue = monthlySales + repeatRevenue;
 
-      // 結果を表示
       document.getElementById('monthly-sales').textContent = monthlySales.toLocaleString();
       document.getElementById('free-time').textContent = freeTime.toFixed(0);
       document.getElementById('repeat-revenue').textContent = repeatRevenue.toLocaleString();
@@ -288,7 +340,6 @@ r;
       document.getElementById('total-revenue').textContent = totalRevenue.toLocaleString();
     }
 
-    // リアルタイム計算（入力時に自動計算）
     document.addEventListener('DOMContentLoaded', function() {
       const inputs = document.querySelectorAll('input[type="number"]');
       inputs.forEach(input => {
