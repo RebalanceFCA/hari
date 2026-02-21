@@ -262,7 +262,7 @@
         
         <div class="result-item">
           <strong>月売上とリピート収益の合計</strong>
-          <div class="result-value">¥<span id="current-plus-repeat">3,500,000</span></div>
+          <div class="result-value">ﾥ<span id="current-plus-repeat">3,500,000</span></div>
         </div>
 
         <div class="section-divider">
@@ -276,8 +276,14 @@
         </div>
 
         <div class="result-item">
+          <strong>②高単価メニューのリピート収益</strong>
+          <div class="result-value">ﾥ<span id="premium-repeat-revenue">1,900,800</span></div>
+          <div class="result-description">リピート率80%の金額</div>
+        </div>
+
+        <div class="result-item">
           <strong>③物販売上げ（サブスク）</strong>
-          <div class="result-value">¥<span id="product-revenue">300,000</span></div>
+          <div class="result-value">ﾥ<span id="product-revenue">300,000</span></div>
           <div class="result-description">カルテ枚数の30％×10,000円／月（目安）</div>
         </div>
         
@@ -295,8 +301,8 @@
         
         <div class="result-item">
           <strong>未来の予測月商イメージ</strong>
-          <div class="result-value">¥<span id="total-revenue">2,676,000</span></div>
-          <div class="result-description">高単価メニュー収益+リピート収益+物販売上の合計</div>
+          <div class="result-value">¥<span id="total-revenue">4,576,800</span></div>
+          <div class="result-description">①+②+③の合計</div>
         </div>
       </div>
     </div>
@@ -347,37 +353,41 @@
       const fatigueLevel = parseInt(document.getElementById('fatigue-level').value) || 0;
       const medicalCases = parseInt(document.getElementById('medical-cases').value) || 0;
 
-      // 基準：現在の施術単価の月合計
+      // 現在の施術単価の月売上
       const monthlySales = currentPrice * patientCount * workDays;
       
-      // ①リピート率40%の場合の収益／月
+      // リピート率40%の場合の収益／月
       const repeatRevenue = monthlySales * 0.4;
       
-      // ②現在の施術単価の月合計と①の合計
+      // 月売上とリピート収益の合計
       const currentPlusRepeat = monthlySales + repeatRevenue;
       
-      // ③高単価メニュー導入後の収益（固定値）
+      // ①高単価メニュー導入後の収益（固定値）
       const premiumRevenue = 2376000;
       
-      // ④物販売上げ（サブスク）
+      // ②高単価メニューのリピート収益（固定値）
+      const premiumRepeatRevenue = 6 * 20 * 0.8 * 19800;
+      
+      // ③物販売上げ（サブスク）
       const productRevenue = medicalCases * 0.3 * 10000;
       
-      // ⑤毎月新しく生み出されるおおよその自由時間（既存の計算式）
+      // ④毎月新しく生み出されるおおよその自由時間
       const newPatientCount = patientCount / 2;
       const freeTimePerDay = (patientCount - newPatientCount) * (treatmentTime / 60);
       const freeTime = freeTimePerDay * workDays;
       
-      // ⑥高単価メニュー導入後の推定疲労度
+      // ⑤高単価メニュー導入後の推定疲労度
       const estimatedFatigue = fatigueLevel * 0.5;
       
-      // ⑦未来の予測月商イメージ（③ + ④）
-      const totalRevenue = premiumRevenue + productRevenue;
+      // 未来の予測月商イメージ（① + ② + ③）
+      const totalRevenue = premiumRevenue + premiumRepeatRevenue + productRevenue;
 
       // 結果を表示
       document.getElementById('monthly-sales').textContent = monthlySales.toLocaleString();
       document.getElementById('repeat-revenue').textContent = repeatRevenue.toLocaleString();
       document.getElementById('current-plus-repeat').textContent = currentPlusRepeat.toLocaleString();
       document.getElementById('premium-revenue').textContent = premiumRevenue.toLocaleString();
+      document.getElementById('premium-repeat-revenue').textContent = premiumRepeatRevenue.toLocaleString();
       document.getElementById('product-revenue').textContent = productRevenue.toLocaleString();
       document.getElementById('free-time').textContent = freeTime.toFixed(0);
       document.getElementById('estimated-fatigue').textContent = estimatedFatigue.toFixed(1);
